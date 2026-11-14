@@ -690,107 +690,27 @@ h2 {
   margin: 0 0 1.1rem;
 }
 
-.photo-visual {
-  position: relative;
-  overflow: hidden;
+.photo-img {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 6px;
   background-color: var(--surface-2);
   box-shadow:
-    inset 0 0 0 1px rgba(245, 158, 11, 0.12),
+    0 0 0 1px rgba(245, 158, 11, 0.12),
     0 12px 28px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s ease;
 }
 
-.photo-visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(26, 26, 26, 0) 45%, rgba(26, 26, 26, 0.55) 100%);
-}
-
-.photo-visual::after {
-  content: attr(data-mark);
-  position: absolute;
-  left: 0.75rem;
-  bottom: 0.65rem;
-  z-index: 2;
-  color: rgba(255, 240, 220, 0.68);
-  font-size: 0.52rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.photo-index {
-  position: absolute;
-  top: 0.65rem;
-  left: 0.7rem;
-  z-index: 2;
-  color: rgba(255, 240, 220, 0.5);
-  font-size: 0.52rem;
-  letter-spacing: 0.16em;
-}
-
-.ph-1 {
-  aspect-ratio: 4 / 5;
-  background:
-    radial-gradient(circle at 28% 18%, rgba(245, 158, 11, 0.45), transparent 45%),
-    linear-gradient(150deg, #5a3527, #261b16);
-}
-
-.ph-2 {
-  aspect-ratio: 1 / 1;
-  background:
-    radial-gradient(circle at 70% 25%, rgba(244, 63, 94, 0.34), transparent 45%),
-    linear-gradient(160deg, #3e2a22, #1f1815);
-}
-
-.ph-3 {
-  aspect-ratio: 3 / 4;
-  background:
-    radial-gradient(circle at 30% 70%, rgba(245, 196, 113, 0.32), transparent 45%),
-    linear-gradient(140deg, #43332a, #221a16);
-}
-
-.ph-4 {
-  aspect-ratio: 4 / 3;
-  background:
-    radial-gradient(circle at 75% 30%, rgba(244, 63, 94, 0.28), transparent 45%),
-    linear-gradient(150deg, #4b3026, #211915);
-}
-
-.ph-5 {
-  aspect-ratio: 1 / 1;
-  background:
-    radial-gradient(circle at 35% 35%, rgba(214, 185, 138, 0.28), transparent 45%),
-    linear-gradient(160deg, #3b2e26, #1d1815);
-}
-
-.ph-6 {
-  aspect-ratio: 3 / 4;
-  background:
-    radial-gradient(circle at 65% 65%, rgba(245, 158, 11, 0.3), transparent 45%),
-    linear-gradient(140deg, #503327, #241b17);
-}
-
-.ph-7 {
-  aspect-ratio: 4 / 5;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(244, 63, 94, 0.3), transparent 45%),
-    linear-gradient(155deg, #4a2f27, #1f1815);
-}
-
-.ph-8 {
-  aspect-ratio: 1 / 1;
-  background:
-    radial-gradient(circle at 60% 40%, rgba(245, 196, 113, 0.3), transparent 45%),
-    linear-gradient(150deg, #3f3027, #1e1814);
-}
-
-.ph-9 {
-  aspect-ratio: 4 / 3;
-  background:
-    radial-gradient(circle at 25% 60%, rgba(245, 158, 11, 0.28), transparent 45%),
-    linear-gradient(160deg, #4c3328, #221a16);
+@media (hover: hover) {
+  .photo:hover .photo-img {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow:
+      0 0 0 1px rgba(245, 158, 11, 0.2),
+      0 18px 36px rgba(0, 0, 0, 0.24);
+  }
 }
 
 .caption {
@@ -1256,63 +1176,41 @@ h2 {
       <div class="section-head reveal">
         <p class="section-kicker">us, so far</p>
         <h2>Us, so far.</h2>
-        <p class="section-lede">The photos are coming. The captions got impatient.</p>
+        <p class="section-lede">A few frames I keep coming back to.</p>
       </div>
 
       <div class="gallery">
         <figure class="photo reveal" style="--delay: 0.02s">
-          <div class="photo-visual ph-1" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">01</span>
-          </div>
-          <figcaption class="caption">The blurry one you hate. I keep it because you’re laughing.</figcaption>
+          <img class="photo-img" src="photos/01.jpg" alt="A photo from our story" width="1599" height="899" loading="lazy" decoding="async">
+          <figcaption class="caption">The day I stopped checking the time.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.05s">
-          <div class="photo-visual ph-2" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">02</span>
-          </div>
-          <figcaption class="caption">That rainy afternoon we pretended to be tourists in our own city.</figcaption>
+          <img class="photo-img" src="photos/02.jpg" alt="A photo from our story" width="899" height="1599" loading="lazy" decoding="async">
+          <figcaption class="caption">A perfectly ordinary moment I’d like back.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.08s">
-          <div class="photo-visual ph-3" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">03</span>
-          </div>
-          <figcaption class="caption">Proof that you did, in fact, finish the whole plate.</figcaption>
+          <img class="photo-img" src="photos/03.jpg" alt="A photo from our story" width="1600" height="900" loading="lazy" decoding="async">
+          <figcaption class="caption">I don’t remember what we talked about. I remember not wanting to leave.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.11s">
-          <div class="photo-visual ph-4" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">04</span>
-          </div>
-          <figcaption class="caption">The metro selfie where you blinked. Still my favourite.</figcaption>
+          <img class="photo-img" src="photos/04.jpg" alt="A photo from our story" width="899" height="1599" loading="lazy" decoding="async">
+          <figcaption class="caption">One of the good ones. You can tell by the light.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.14s">
-          <div class="photo-visual ph-5" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">05</span>
-          </div>
-          <figcaption class="caption">You, mid-story, hands doing the talking.</figcaption>
+          <img class="photo-img" src="photos/05.jpg" alt="A photo from our story" width="1600" height="1200" loading="lazy" decoding="async">
+          <figcaption class="caption">This is the version of the day I keep.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.17s">
-          <div class="photo-visual ph-6" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">06</span>
-          </div>
-          <figcaption class="caption">The chai stall we keep going back to.</figcaption>
+          <img class="photo-img" src="photos/06.jpg" alt="A photo from our story" width="1200" height="1600" loading="lazy" decoding="async">
+          <figcaption class="caption">No big story. Just a moment I wanted to save.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.2s">
-          <div class="photo-visual ph-7" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">07</span>
-          </div>
-          <figcaption class="caption">Golden hour, your hair, my terrible camera.</figcaption>
+          <img class="photo-img" src="photos/07.jpg" alt="A photo from our story" width="1200" height="1600" loading="lazy" decoding="async">
+          <figcaption class="caption">The kind of photo that makes the distance feel smaller.</figcaption>
         </figure>
         <figure class="photo reveal" style="--delay: 0.23s">
-          <div class="photo-visual ph-8" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">08</span>
-          </div>
-          <figcaption class="caption">The night we missed the last train and called it fate.</figcaption>
-        </figure>
-        <figure class="photo reveal" style="--delay: 0.26s">
-          <div class="photo-visual ph-9" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
-            <span class="photo-index" aria-hidden="true">09</span>
-          </div>
-          <figcaption class="caption">That one photo you’ll delete. I’m saving it here forever.</figcaption>
+          <img class="photo-img" src="photos/08.jpg" alt="A photo from our story" width="1200" height="1600" loading="lazy" decoding="async">
+          <figcaption class="caption">Saved without a second thought.</figcaption>
         </figure>
       </div>
     </div>
