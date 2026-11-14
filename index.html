@@ -65,6 +65,14 @@ body.no-scroll {
   outline-offset: 4px;
 }
 
+.envelope,
+.reason-card,
+.star-trigger,
+.egg-close,
+.egg-button {
+  touch-action: manipulation;
+}
+
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -79,6 +87,18 @@ body.no-scroll {
   text-decoration: none;
   transform: translateY(-200%);
   transition: transform 0.2s ease;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .skip-link:focus {
@@ -505,12 +525,9 @@ h2 {
   border-radius: 3px;
   color: var(--ink);
   background-color: #f6ebda;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 30px,
-    rgba(120, 90, 60, 0.12) 31px
-  );
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.55), transparent 30%),
+    radial-gradient(circle at 82% 88%, rgba(150, 105, 65, 0.06), transparent 35%);
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.45),
     inset 0 2px 0 rgba(255, 255, 255, 0.2);
@@ -1142,6 +1159,7 @@ h2 {
         <p class="envelope-hint" id="envelopeHint">tap the envelope</p>
 
         <article class="letter-card" id="letterCard" aria-hidden="true">
+          <h3 class="sr-only">A letter for Swati</h3>
           <div class="letter-paper">
             <p class="letter-date">for whenever you need it</p>
             <div class="letter-body">
@@ -1350,6 +1368,7 @@ h2 {
     envelopeWrap.classList.toggle("is-open", open);
     letterCard.classList.toggle("is-open", open);
     envelope.setAttribute("aria-expanded", String(open));
+    envelope.setAttribute("aria-label", open ? "Fold the letter back" : "Open the letter");
     letterCard.setAttribute("aria-hidden", String(!open));
     envelopeHint.textContent = open ? "tap again to fold it back" : "tap the envelope";
   }
