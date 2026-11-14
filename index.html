@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>For Swati</title>
 <meta name="description" content="A small corner of the internet for Swati.">
-<meta name="theme-color" content="#1a1a1a">
+<meta name="theme-color" content="#1a1013">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1a1a1a;
-  --surface: #211b17;
-  --surface-2: #2a211b;
-  --cream: #f7efe5;
-  --text: #eee5d8;
-  --muted: #b9ab9d;
-  --amber: #f59e0b;
-  --rose: #f43f5e;
-  --paper: #f5ead8;
-  --ink: #3a2b23;
-  --line: rgba(245, 158, 11, 0.14);
+  --bg: #1a1013;
+  --surface: #241419;
+  --surface-2: #2e1a20;
+  --cream: #fff1f4;
+  --text: #f8e8ec;
+  --muted: #c9a8b2;
+  --pink: #ff5c8a;
+  --red: #e11d48;
+  --paper: #fff0f4;
+  --ink: #4a2430;
+  --line: rgba(255, 92, 138, 0.16);
   --max: 1100px;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -40,8 +40,8 @@ body {
   min-height: 100vh;
   color: var(--text);
   background:
-    radial-gradient(70rem 50rem at 50% -15%, rgba(245, 158, 11, 0.07), transparent 60%),
-    radial-gradient(60rem 45rem at 110% 50%, rgba(244, 63, 94, 0.045), transparent 60%),
+    radial-gradient(70rem 50rem at 50% -15%, rgba(255, 92, 138, 0.09), transparent 60%),
+    radial-gradient(60rem 45rem at 110% 50%, rgba(225, 29, 72, 0.06), transparent 60%),
     var(--bg);
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
@@ -56,12 +56,12 @@ body.no-scroll {
 }
 
 ::selection {
-  color: #1a1a1a;
-  background: #f6c177;
+  color: #1a1013;
+  background: #ffb3c7;
 }
 
 :focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--pink);
   outline-offset: 4px;
 }
 
@@ -80,7 +80,7 @@ body.no-scroll {
   z-index: 200;
   padding: 0.65rem 0.9rem;
   border-radius: 4px;
-  color: #1a1a1a;
+  color: #1a1013;
   background: var(--cream);
   font-size: 0.8rem;
   font-weight: 600;
@@ -125,7 +125,21 @@ body.no-scroll {
 }
 
 .section + .section {
-  border-top: 1px solid rgba(245, 158, 11, 0.07);
+  border-top: 1px solid rgba(255, 92, 138, 0.09);
+}
+
+.section + .section::before {
+  content: "♥";
+  position: absolute;
+  top: -0.52rem;
+  left: 50%;
+  z-index: 1;
+  padding: 0 0.7rem;
+  color: rgba(255, 92, 138, 0.55);
+  background: var(--bg);
+  font-size: 0.72rem;
+  line-height: 1;
+  transform: translateX(-50%);
 }
 
 .section-inner {
@@ -144,7 +158,7 @@ body.no-scroll {
   align-items: center;
   gap: 0.7rem;
   margin: 0 0 1rem;
-  color: var(--amber);
+  color: var(--pink);
   font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -155,7 +169,7 @@ body.no-scroll {
   content: "";
   width: 2.2rem;
   height: 1px;
-  background: linear-gradient(90deg, var(--amber), transparent);
+  background: linear-gradient(90deg, var(--pink), transparent);
 }
 
 h2 {
@@ -194,9 +208,9 @@ h2 {
   inset: -25%;
   z-index: -1;
   background:
-    radial-gradient(35% 35% at 30% 35%, rgba(245, 158, 11, 0.22), transparent 70%),
-    radial-gradient(30% 30% at 70% 30%, rgba(244, 63, 94, 0.16), transparent 70%),
-    radial-gradient(45% 40% at 50% 75%, rgba(245, 158, 11, 0.09), transparent 70%);
+    radial-gradient(35% 35% at 30% 35%, rgba(255, 92, 138, 0.24), transparent 70%),
+    radial-gradient(30% 30% at 70% 30%, rgba(225, 29, 72, 0.18), transparent 70%),
+    radial-gradient(45% 40% at 50% 75%, rgba(255, 92, 138, 0.11), transparent 70%);
   filter: blur(30px);
   animation: warmShift 26s ease-in-out infinite alternate;
 }
@@ -206,7 +220,7 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(ellipse at center, transparent 35%, rgba(26, 26, 26, 0.45) 100%);
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(26, 16, 19, 0.45) 100%);
 }
 
 @keyframes warmShift {
@@ -229,7 +243,7 @@ h2 {
 
 .hero-eyebrow {
   margin: 0 0 1.4rem;
-  color: #d6b98a;
+  color: #f9a8c0;
   font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.24em;
@@ -245,12 +259,12 @@ h2 {
   font-weight: 500;
   line-height: 0.86;
   letter-spacing: -0.045em;
-  filter: drop-shadow(0 18px 40px rgba(245, 158, 11, 0.1));
+  filter: drop-shadow(0 18px 40px rgba(255, 92, 138, 0.12));
 }
 
 .hero-name span {
   display: inline-block;
-  color: #f4d9ad;
+  color: #ffd6e3;
   opacity: 0;
   transform: translateY(0.35em) rotate(4deg) scale(0.96);
   animation: letterIn 0.9s var(--ease) forwards;
@@ -260,7 +274,7 @@ h2 {
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .hero-name span {
     color: transparent;
-    background: linear-gradient(180deg, #fff9ef 0%, #f4d9ad 58%, #e5a23d 100%);
+    background: linear-gradient(180deg, #fff5f8 0%, #ffd6e3 58%, #e11d48 100%);
     -webkit-background-clip: text;
     background-clip: text;
   }
@@ -280,7 +294,7 @@ h2 {
 .hero-sub {
   max-width: 29ch;
   margin: 1.6rem auto 0;
-  color: #d9cdbd;
+  color: #f0d5dd;
   font-size: clamp(1rem, 3.8vw, 1.2rem);
   line-height: 1.7;
   opacity: 0;
@@ -288,7 +302,7 @@ h2 {
 }
 
 .hero-sub em {
-  color: #f6c177;
+  color: #ffb3c7;
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
 }
@@ -311,7 +325,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  color: #a99b8c;
+  color: #bd9aa5;
   font-size: 0.64rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -323,7 +337,7 @@ h2 {
 }
 
 .scroll-cue span {
-  color: var(--amber);
+  color: var(--pink);
   font-size: 1rem;
   line-height: 1;
   animation: cueBounce 2.2s ease-in-out infinite;
@@ -348,7 +362,7 @@ h2 {
 }
 
 .letter-section {
-  background: radial-gradient(60rem 40rem at 50% 20%, rgba(244, 63, 94, 0.05), transparent 60%);
+  background: radial-gradient(60rem 40rem at 50% 20%, rgba(225, 29, 72, 0.06), transparent 60%);
 }
 
 .envelope-wrap {
@@ -384,10 +398,10 @@ h2 {
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: linear-gradient(145deg, #4a3022, #241a15 75%);
+  background: linear-gradient(145deg, #4a2030, #241016 75%);
   box-shadow:
     0 25px 60px rgba(0, 0, 0, 0.45),
-    inset 0 0 0 1px rgba(245, 158, 11, 0.18);
+    inset 0 0 0 1px rgba(255, 92, 138, 0.2);
 }
 
 .envelope-paper {
@@ -402,9 +416,9 @@ h2 {
   align-items: flex-start;
   padding-top: 12%;
   border-radius: 3px;
-  color: #6b4d38;
-  background: #f4e8d5;
-  box-shadow: 0 0 0 1px rgba(80, 50, 30, 0.1);
+  color: #7a3a50;
+  background: #fff0f4;
+  box-shadow: 0 0 0 1px rgba(100, 30, 55, 0.1);
   font-family: "Caveat", cursive;
   font-size: 1.35rem;
   transform: translateY(4%);
@@ -420,9 +434,9 @@ h2 {
   inset: 0;
   z-index: 3;
   border-radius: 10px;
-  background: linear-gradient(160deg, #6a432c 0%, #4a2d1f 55%, #3a2218 100%);
+  background: linear-gradient(160deg, #6b2a40 0%, #4a1d2c 55%, #37141f 100%);
   clip-path: polygon(0 0, 50% 47%, 100% 0, 100% 100%, 0 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 220, 170, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 200, 220, 0.08);
 }
 
 .envelope-front::after {
@@ -440,7 +454,7 @@ h2 {
   height: 52%;
   z-index: 4;
   border-radius: 10px 10px 0 0;
-  background: linear-gradient(180deg, #7a4e33 0%, #5d3825 60%, #45281b 100%);
+  background: linear-gradient(180deg, #7d3350 0%, #5c2338 60%, #43192a 100%);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top center;
   transform: rotateX(0deg);
@@ -465,8 +479,8 @@ h2 {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  color: #ffe6d5;
-  background: radial-gradient(circle at 35% 30%, #c22a4c, #8f1231 55%, #5b0b1e 100%);
+  color: #ffe6ee;
+  background: radial-gradient(circle at 35% 30%, #ff4d8d, #c81e4a 55%, #7c0d2a 100%);
   box-shadow:
     0 8px 18px rgba(0, 0, 0, 0.35),
     inset 0 2px 3px rgba(255, 255, 255, 0.22),
@@ -487,7 +501,7 @@ h2 {
 
 .envelope-hint {
   margin: 1.4rem 0 0;
-  color: #a99b8c;
+  color: #bd9aa5;
   font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -495,7 +509,7 @@ h2 {
 }
 
 .envelope-wrap.is-open .envelope-hint {
-  color: #d6b98a;
+  color: #f9a8c0;
 }
 
 .letter-card {
@@ -524,10 +538,10 @@ h2 {
   padding: clamp(1.6rem, 6vw, 3.4rem) clamp(1.35rem, 5.5vw, 3.2rem);
   border-radius: 3px;
   color: var(--ink);
-  background-color: #f6ebda;
+  background-color: #fff1f4;
   background-image:
     radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.55), transparent 30%),
-    radial-gradient(circle at 82% 88%, rgba(150, 105, 65, 0.06), transparent 35%);
+    radial-gradient(circle at 82% 88%, rgba(180, 60, 100, 0.06), transparent 35%);
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.45),
     inset 0 2px 0 rgba(255, 255, 255, 0.2);
@@ -541,8 +555,8 @@ h2 {
   top: -10px;
   width: 76px;
   height: 24px;
-  border: 1px solid rgba(180, 130, 60, 0.14);
-  background: rgba(245, 196, 113, 0.26);
+  border: 1px solid rgba(200, 80, 120, 0.14);
+  background: rgba(255, 140, 175, 0.28);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
@@ -558,7 +572,7 @@ h2 {
 
 .letter-date {
   margin: 0 0 1.4rem;
-  color: #8a6b54;
+  color: #a05a70;
   font-family: "Inter", sans-serif;
   font-size: 0.6rem;
   letter-spacing: 0.18em;
@@ -577,7 +591,7 @@ h2 {
 
 .salutation {
   margin: 0 0 1.1rem;
-  color: #4a2f22;
+  color: #4a2430;
   font-size: clamp(2rem, 6vw, 2.6rem);
   line-height: 1;
 }
@@ -588,14 +602,14 @@ h2 {
 
 .signature {
   margin: 0;
-  color: #4a2f22;
+  color: #4a2430;
   font-size: clamp(2rem, 6vw, 2.6rem);
   line-height: 1;
 }
 
 .p-s {
   margin-top: 1.2rem;
-  color: #6d4e3a;
+  color: #7a3a50;
   font-size: 0.9em;
 }
 
@@ -623,7 +637,7 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 8px;
   color: var(--text);
-  background: linear-gradient(155deg, rgba(245, 158, 11, 0.08), rgba(244, 63, 94, 0.04) 55%, rgba(255, 255, 255, 0.02));
+  background: linear-gradient(155deg, rgba(255, 92, 138, 0.1), rgba(225, 29, 72, 0.05) 55%, rgba(255, 255, 255, 0.02));
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   font: inherit;
   text-align: left;
@@ -641,11 +655,11 @@ h2 {
 .reason-card:hover,
 .reason-card:focus-visible,
 .reason-card.is-lifted {
-  border-color: rgba(245, 158, 11, 0.4);
-  background: linear-gradient(155deg, rgba(245, 158, 11, 0.14), rgba(244, 63, 94, 0.07) 55%, rgba(255, 255, 255, 0.03));
+  border-color: rgba(255, 92, 138, 0.42);
+  background: linear-gradient(155deg, rgba(255, 92, 138, 0.16), rgba(225, 29, 72, 0.08) 55%, rgba(255, 255, 255, 0.03));
   box-shadow:
     0 18px 36px rgba(0, 0, 0, 0.28),
-    inset 0 0 0 1px rgba(245, 158, 11, 0.08);
+    inset 0 0 0 1px rgba(255, 92, 138, 0.1);
   transform: translateY(-6px);
 }
 
@@ -655,14 +669,14 @@ h2 {
 }
 
 .reason-text {
-  color: #e7dccd;
+  color: #f4dbe2;
   font-size: 0.86rem;
   line-height: 1.55;
 }
 
 .reason-index {
   margin-top: auto;
-  color: rgba(185, 171, 157, 0.65);
+  color: rgba(201, 168, 178, 0.65);
   font-size: 0.56rem;
   letter-spacing: 0.18em;
 }
@@ -697,7 +711,7 @@ h2 {
   border-radius: 6px;
   background-color: var(--surface-2);
   box-shadow:
-    0 0 0 1px rgba(245, 158, 11, 0.12),
+    0 0 0 1px rgba(255, 92, 138, 0.14),
     0 12px 28px rgba(0, 0, 0, 0.16);
   transition:
     transform 0.5s var(--ease),
@@ -708,13 +722,13 @@ h2 {
   .photo:hover .photo-img {
     transform: translateY(-3px) scale(1.01);
     box-shadow:
-      0 0 0 1px rgba(245, 158, 11, 0.2),
+      0 0 0 1px rgba(255, 92, 138, 0.22),
       0 18px 36px rgba(0, 0, 0, 0.24);
   }
 }
 
 .song-section {
-  background: radial-gradient(50rem 35rem at 50% 50%, rgba(245, 158, 11, 0.06), transparent 60%);
+  background: radial-gradient(50rem 35rem at 50% 50%, rgba(255, 92, 138, 0.08), transparent 60%);
 }
 
 .song-inner {
@@ -730,13 +744,13 @@ h2 {
 
 .song-title {
   margin: 1.2rem 0 1.6rem;
-  color: #f6c177;
+  color: #ffb3c7;
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.3rem, 4vw, 1.8rem);
 }
 
 .song-title span {
-  color: #a99b8c;
+  color: #bd9aa5;
   font-family: "Inter", sans-serif;
   font-size: 0.7em;
   letter-spacing: 0.06em;
@@ -751,7 +765,7 @@ h2 {
   background: #000;
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(245, 158, 11, 0.18);
+    0 0 0 1px rgba(255, 92, 138, 0.2);
 }
 
 .video-frame iframe {
@@ -764,33 +778,33 @@ h2 {
 
 .song-note {
   margin: 1rem 0 0;
-  color: #a99b8c;
+  color: #bd9aa5;
   font-size: 0.8rem;
 }
 
 .song-link {
-  color: #d6b98a;
+  color: #f9a8c0;
   text-decoration: underline;
-  text-decoration-color: rgba(245, 158, 11, 0.4);
+  text-decoration-color: rgba(255, 92, 138, 0.42);
   text-underline-offset: 3px;
 }
 
 .footer {
   padding: 3.5rem 1.25rem 4.5rem;
-  border-top: 1px solid rgba(245, 158, 11, 0.07);
+  border-top: 1px solid rgba(255, 92, 138, 0.09);
   text-align: center;
 }
 
 .footer p {
   margin: 0;
-  color: #9e9082;
+  color: #b08d98;
   font-size: 0.76rem;
   letter-spacing: 0.02em;
 }
 
 .footer .footer-small {
   margin-top: 0.55rem;
-  color: #d6b98a;
+  color: #f9a8c0;
   font-family: "Caveat", cursive;
   font-size: 1.35rem;
   letter-spacing: 0;
@@ -807,7 +821,7 @@ h2 {
   place-items: center;
   padding: 0;
   border: 0;
-  color: var(--amber);
+  color: var(--pink);
   background: transparent;
   font-size: 0.9rem;
   opacity: 0.16;
@@ -825,7 +839,7 @@ h2 {
 }
 
 .star-trigger.is-tapped {
-  color: #ffd27a;
+  color: #ff9ec0;
   opacity: 1;
   transform: scale(1.4) rotate(12deg);
 }
@@ -837,7 +851,7 @@ h2 {
   display: grid;
   place-items: center;
   padding: 1.25rem;
-  background: rgba(12, 10, 8, 0.9);
+  background: rgba(12, 7, 10, 0.92);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   opacity: 0;
@@ -858,10 +872,10 @@ h2 {
   max-height: 90svh;
   overflow: auto;
   padding: clamp(2rem, 7vw, 3.5rem);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  border: 1px solid rgba(255, 92, 138, 0.28);
   border-radius: 10px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.13), transparent 60%),
+    radial-gradient(circle at 50% 0%, rgba(255, 92, 138, 0.15), transparent 60%),
     var(--surface);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
   text-align: center;
@@ -875,7 +889,7 @@ h2 {
 
 .egg-kicker {
   margin: 0 0 1rem;
-  color: var(--amber);
+  color: var(--pink);
   font-size: 0.6rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -889,7 +903,7 @@ h2 {
 .egg-message {
   max-width: 34ch;
   margin: 0 auto;
-  color: #e7dccd;
+  color: #f4dbe2;
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.1rem, 3.4vw, 1.35rem);
   line-height: 1.55;
@@ -898,7 +912,7 @@ h2 {
 .egg-personal {
   max-width: 30ch;
   margin: 1.2rem auto 0;
-  color: #f6c177;
+  color: #ffb3c7;
   font-family: "Caveat", cursive;
   font-size: clamp(1.4rem, 4.5vw, 1.8rem);
   line-height: 1.3;
@@ -915,7 +929,7 @@ h2 {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  color: #b9ab9d;
+  color: #c9a8b2;
   background: transparent;
   font-size: 1.5rem;
   line-height: 1;
@@ -931,10 +945,10 @@ h2 {
 .egg-button {
   margin-top: 1.8rem;
   padding: 0.8rem 1.15rem;
-  border: 1px solid rgba(245, 158, 11, 0.42);
+  border: 1px solid rgba(255, 92, 138, 0.45);
   border-radius: 999px;
-  color: #ffd9a0;
-  background: rgba(245, 158, 11, 0.1);
+  color: #ffd6e3;
+  background: rgba(255, 92, 138, 0.12);
   font: inherit;
   font-size: 0.76rem;
   letter-spacing: 0.08em;
@@ -946,7 +960,7 @@ h2 {
 
 .egg-button:hover,
 .egg-button:focus-visible {
-  background: rgba(245, 158, 11, 0.18);
+  background: rgba(255, 92, 138, 0.2);
   transform: translateY(-2px);
 }
 
@@ -1035,7 +1049,7 @@ h2 {
 <main>
   <section class="hero" id="top">
     <div class="hero-inner">
-      <p class="hero-eyebrow">a small thing, made slowly</p>
+      <p class="hero-eyebrow"><span aria-hidden="true">♡</span> a small thing, made slowly</p>
       <h1 class="hero-name" aria-label="Swati">
         <span aria-hidden="true" style="--i:0">S</span><span aria-hidden="true" style="--i:1">w</span><span aria-hidden="true" style="--i:2">a</span><span aria-hidden="true" style="--i:3">t</span><span aria-hidden="true" style="--i:4">i</span>
       </h1>
@@ -1058,7 +1072,7 @@ h2 {
           <span class="envelope-paper" aria-hidden="true">Swati,</span>
           <span class="envelope-front" aria-hidden="true"></span>
           <span class="envelope-flap" aria-hidden="true"></span>
-          <span class="wax-seal" aria-hidden="true">S</span>
+          <span class="wax-seal" aria-hidden="true">♥</span>
         </button>
         <p class="envelope-hint" id="envelopeHint">tap the envelope</p>
 
@@ -1215,7 +1229,7 @@ h2 {
 
 <footer class="footer">
   <p>Made by your person, with too much coffee and not enough sleep.</p>
-  <p class="footer-small">for Swati. obviously.</p>
+  <p class="footer-small">for Swati. obviously. ♥</p>
 </footer>
 
 <div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-labelledby="eggTitle" aria-hidden="true">
@@ -1306,7 +1320,7 @@ h2 {
   var lastFocus = null;
   var confettiTimer;
 
-  var palette = ["#f59e0b", "#f43f5e", "#f6c177", "#f5ead8", "#c2410c"];
+  var palette = ["#ff5c8a", "#e11d48", "#ffb3c7", "#fff0f4", "#be123c"];
 
   function spawnConfetti() {
     confettiLayer.replaceChildren();
