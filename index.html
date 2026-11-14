@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>For Swati</title>
+<meta name="description" content="A small corner of the internet for Swati.">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1a1a1a;
+  --surface: #211b17;
+  --surface-2: #2a211b;
+  --cream: #f7efe5;
+  --text: #eee5d8;
+  --muted: #b9ab9d;
+  --amber: #f59e0b;
+  --rose: #f43f5e;
+  --paper: #f5ead8;
+  --ink: #3a2b23;
+  --line: rgba(245, 158, 11, 0.14);
+  --max: 1100px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(70rem 50rem at 50% -15%, rgba(245, 158, 11, 0.07), transparent 60%),
+    radial-gradient(60rem 45rem at 110% 50%, rgba(244, 63, 94, 0.045), transparent 60%),
+    var(--bg);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+::selection {
+  color: #1a1a1a;
+  background: #f6c177;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.65rem 0.9rem;
+  border-radius: 4px;
+  color: #1a1a1a;
+  background: var(--cream);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease var(--delay, 0s),
+    transform 0.6s var(--ease) var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.section {
+  position: relative;
+  padding: clamp(4.5rem, 13vw, 8.5rem) 1.25rem;
+}
+
+.section + .section {
+  border-top: 1px solid rgba(245, 158, 11, 0.07);
+}
+
+.section-inner {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: clamp(2rem, 6vw, 3.5rem);
+}
+
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  color: var(--amber);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 2.2rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--amber), transparent);
+}
+
+h2 {
+  margin: 0;
+  color: var(--cream);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.section-lede {
+  max-width: 55ch;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(5rem, 12vh, 8rem) 1.25rem clamp(6rem, 14vh, 9rem);
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  z-index: -1;
+  background:
+    radial-gradient(35% 35% at 30% 35%, rgba(245, 158, 11, 0.22), transparent 70%),
+    radial-gradient(30% 30% at 70% 30%, rgba(244, 63, 94, 0.16), transparent 70%),
+    radial-gradient(45% 40% at 50% 75%, rgba(245, 158, 11, 0.09), transparent 70%);
+  filter: blur(30px);
+  animation: warmShift 26s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(26, 26, 26, 0.45) 100%);
+}
+
+@keyframes warmShift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, 3%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-1%, 1%, 0) scale(1.03);
+  }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.hero-eyebrow {
+  margin: 0 0 1.4rem;
+  color: #d6b98a;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+}
+
+.hero-name {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(4.4rem, 24vw, 12rem);
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  filter: drop-shadow(0 18px 40px rgba(245, 158, 11, 0.1));
+}
+
+.hero-name span {
+  display: inline-block;
+  color: #f4d9ad;
+  opacity: 0;
+  transform: translateY(0.35em) rotate(4deg) scale(0.96);
+  animation: letterIn 0.9s var(--ease) forwards;
+  animation-delay: calc(0.35s + var(--i) * 0.1s);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero-name span {
+    color: transparent;
+    background: linear-gradient(180deg, #fff9ef 0%, #f4d9ad 58%, #e5a23d 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+@keyframes letterIn {
+  0% {
+    opacity: 0;
+    transform: translateY(0.35em) rotate(4deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+}
+
+.hero-sub {
+  max-width: 29ch;
+  margin: 1.6rem auto 0;
+  color: #d9cdbd;
+  font-size: clamp(1rem, 3.8vw, 1.2rem);
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease) 0.95s forwards;
+}
+
+.hero-sub em {
+  color: #f6c177;
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #a99b8c;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  animation: cuePulse 3.2s ease-in-out infinite;
+}
+
+.scroll-cue span {
+  color: var(--amber);
+  font-size: 1rem;
+  line-height: 1;
+  animation: cueBounce 2.2s ease-in-out infinite;
+}
+
+@keyframes cuePulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes cueBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.letter-section {
+  background: radial-gradient(60rem 40rem at 50% 20%, rgba(244, 63, 94, 0.05), transparent 60%);
+}
+
+.envelope-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope {
+  width: min(360px, 88vw);
+  aspect-ratio: 1.55;
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 1200px;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.5s var(--ease);
+}
+
+@media (hover: hover) {
+  .envelope:not(.is-open):hover {
+    transform: translateY(-3px);
+  }
+  .envelope:not(.is-open):hover .envelope-flap {
+    transform: rotateX(-8deg);
+  }
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #4a3022, #241a15 75%);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(245, 158, 11, 0.18);
+}
+
+.envelope-paper {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  right: 7%;
+  height: 82%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 12%;
+  border-radius: 3px;
+  color: #6b4d38;
+  background: #f4e8d5;
+  box-shadow: 0 0 0 1px rgba(80, 50, 30, 0.1);
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+  transform: translateY(4%);
+  transition: transform 0.8s var(--ease) 0.45s;
+}
+
+.envelope.is-open .envelope-paper {
+  transform: translateY(-2%);
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 10px;
+  background: linear-gradient(160deg, #6a432c 0%, #4a2d1f 55%, #3a2218 100%);
+  clip-path: polygon(0 0, 50% 47%, 100% 0, 100% 100%, 0 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 220, 170, 0.06);
+}
+
+.envelope-front::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 35%, rgba(0, 0, 0, 0.12));
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  z-index: 4;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(180deg, #7a4e33 0%, #5d3825 60%, #45281b 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s,
+    z-index 0s 0.45s;
+  backface-visibility: visible;
+}
+
+.envelope.is-open .envelope-flap {
+  z-index: 0;
+  transform: rotateX(-168deg);
+}
+
+.wax-seal {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  z-index: 5;
+  width: clamp(44px, 13vw, 56px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #ffe6d5;
+  background: radial-gradient(circle at 35% 30%, #c22a4c, #8f1231 55%, #5b0b1e 100%);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.35),
+    inset 0 2px 3px rgba(255, 255, 255, 0.22),
+    inset 0 -4px 10px rgba(0, 0, 0, 0.3);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.35s ease 0.2s,
+    transform 0.5s var(--ease) 0.15s;
+}
+
+.envelope.is-open .wax-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.55) rotate(25deg);
+}
+
+.envelope-hint {
+  margin: 1.4rem 0 0;
+  color: #a99b8c;
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.envelope-wrap.is-open .envelope-hint {
+  color: #d6b98a;
+}
+
+.letter-card {
+  width: min(720px, 100%);
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition:
+    max-height 1s var(--ease) 0.55s,
+    opacity 0.65s ease 0.7s,
+    transform 0.8s var(--ease) 0.55s,
+    margin-top 0.6s ease 0.55s;
+}
+
+.letter-card.is-open {
+  max-height: 3000px;
+  margin-top: 2.2rem;
+  opacity: 1;
+  transform: none;
+}
+
+.letter-paper {
+  position: relative;
+  padding: clamp(1.6rem, 6vw, 3.4rem) clamp(1.35rem, 5.5vw, 3.2rem);
+  border-radius: 3px;
+  color: var(--ink);
+  background-color: #f6ebda;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 30px,
+    rgba(120, 90, 60, 0.12) 31px
+  );
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  transform: rotate(-0.25deg);
+}
+
+.letter-paper::before,
+.letter-paper::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 76px;
+  height: 24px;
+  border: 1px solid rgba(180, 130, 60, 0.14);
+  background: rgba(245, 196, 113, 0.26);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.letter-paper::before {
+  left: 8%;
+  transform: rotate(-4deg);
+}
+
+.letter-paper::after {
+  right: 8%;
+  transform: rotate(3deg);
+}
+
+.letter-date {
+  margin: 0 0 1.4rem;
+  color: #8a6b54;
+  font-family: "Inter", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.letter-body {
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.35rem, 4.6vw, 1.7rem);
+  line-height: 1.55;
+}
+
+.letter-body p {
+  margin: 0 0 1.1rem;
+}
+
+.salutation {
+  margin: 0 0 1.1rem;
+  color: #4a2f22;
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  line-height: 1;
+}
+
+.signoff {
+  margin-top: 1.8rem;
+}
+
+.signature {
+  margin: 0;
+  color: #4a2f22;
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  line-height: 1;
+}
+
+.p-s {
+  margin-top: 1.2rem;
+  color: #6d4e3a;
+  font-size: 0.9em;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+@media (min-width: 720px) {
+  .reasons-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+.reason-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 10.5rem;
+  padding: 1.15rem 1rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: linear-gradient(155deg, rgba(245, 158, 11, 0.08), rgba(244, 63, 94, 0.04) 55%, rgba(255, 255, 255, 0.02));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.reason-card:hover,
+.reason-card:focus-visible,
+.reason-card.is-lifted {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: linear-gradient(155deg, rgba(245, 158, 11, 0.14), rgba(244, 63, 94, 0.07) 55%, rgba(255, 255, 255, 0.03));
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(245, 158, 11, 0.08);
+  transform: translateY(-6px);
+}
+
+.reason-emoji {
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.reason-text {
+  color: #e7dccd;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.reason-index {
+  margin-top: auto;
+  color: rgba(185, 171, 157, 0.65);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+}
+
+@media (min-width: 480px) {
+  .reason-text {
+    font-size: 0.92rem;
+  }
+}
+
+.gallery {
+  columns: 2;
+  column-gap: 0.85rem;
+}
+
+@media (min-width: 820px) {
+  .gallery {
+    columns: 3;
+    column-gap: 1rem;
+  }
+}
+
+.photo {
+  break-inside: avoid;
+  margin: 0 0 1.1rem;
+}
+
+.photo-visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: var(--surface-2);
+  box-shadow:
+    inset 0 0 0 1px rgba(245, 158, 11, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.photo-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0) 45%, rgba(26, 26, 26, 0.55) 100%);
+}
+
+.photo-visual::after {
+  content: attr(data-mark);
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.65rem;
+  z-index: 2;
+  color: rgba(255, 240, 220, 0.68);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.photo-index {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.7rem;
+  z-index: 2;
+  color: rgba(255, 240, 220, 0.5);
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+}
+
+.ph-1 {
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(245, 158, 11, 0.45), transparent 45%),
+    linear-gradient(150deg, #5a3527, #261b16);
+}
+
+.ph-2 {
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(circle at 70% 25%, rgba(244, 63, 94, 0.34), transparent 45%),
+    linear-gradient(160deg, #3e2a22, #1f1815);
+}
+
+.ph-3 {
+  aspect-ratio: 3 / 4;
+  background:
+    radial-gradient(circle at 30% 70%, rgba(245, 196, 113, 0.32), transparent 45%),
+    linear-gradient(140deg, #43332a, #221a16);
+}
+
+.ph-4 {
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(circle at 75% 30%, rgba(244, 63, 94, 0.28), transparent 45%),
+    linear-gradient(150deg, #4b3026, #211915);
+}
+
+.ph-5 {
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(214, 185, 138, 0.28), transparent 45%),
+    linear-gradient(160deg, #3b2e26, #1d1815);
+}
+
+.ph-6 {
+  aspect-ratio: 3 / 4;
+  background:
+    radial-gradient(circle at 65% 65%, rgba(245, 158, 11, 0.3), transparent 45%),
+    linear-gradient(140deg, #503327, #241b17);
+}
+
+.ph-7 {
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(244, 63, 94, 0.3), transparent 45%),
+    linear-gradient(155deg, #4a2f27, #1f1815);
+}
+
+.ph-8 {
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(circle at 60% 40%, rgba(245, 196, 113, 0.3), transparent 45%),
+    linear-gradient(150deg, #3f3027, #1e1814);
+}
+
+.ph-9 {
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(circle at 25% 60%, rgba(245, 158, 11, 0.28), transparent 45%),
+    linear-gradient(160deg, #4c3328, #221a16);
+}
+
+.caption {
+  margin: 0.55rem 0 0;
+  padding: 0 0.1rem;
+  color: #a99b8c;
+  font-family: "Inter", sans-serif;
+  font-size: 0.76rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+@media (min-width: 820px) {
+  .caption {
+    font-size: 0.82rem;
+  }
+}
+
+.song-section {
+  background: radial-gradient(50rem 35rem at 50% 50%, rgba(245, 158, 11, 0.06), transparent 60%);
+}
+
+.song-inner {
+  max-width: 880px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.song-inner h2 {
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.song-title {
+  margin: 1.2rem 0 1.6rem;
+  color: #f6c177;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+}
+
+.song-title span {
+  color: #a99b8c;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7em;
+  letter-spacing: 0.06em;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #000;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(245, 158, 11, 0.18);
+}
+
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.song-note {
+  margin: 1rem 0 0;
+  color: #a99b8c;
+  font-size: 0.8rem;
+}
+
+.song-link {
+  color: #d6b98a;
+  text-decoration: underline;
+  text-decoration-color: rgba(245, 158, 11, 0.4);
+  text-underline-offset: 3px;
+}
+
+.footer {
+  padding: 3.5rem 1.25rem 4.5rem;
+  border-top: 1px solid rgba(245, 158, 11, 0.07);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  color: #9e9082;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+}
+
+.footer .footer-small {
+  margin-top: 0.55rem;
+  color: #d6b98a;
+  font-family: "Caveat", cursive;
+  font-size: 1.35rem;
+  letter-spacing: 0;
+}
+
+.star-trigger {
+  position: fixed;
+  top: max(0.6rem, env(safe-area-inset-top));
+  right: max(0.6rem, env(safe-area-inset-right));
+  z-index: 70;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  color: var(--amber);
+  background: transparent;
+  font-size: 0.9rem;
+  opacity: 0.16;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    opacity 0.4s ease,
+    transform 0.3s var(--ease),
+    color 0.3s ease;
+}
+
+.star-trigger:hover,
+.star-trigger:focus-visible {
+  opacity: 0.6;
+}
+
+.star-trigger.is-tapped {
+  color: #ffd27a;
+  opacity: 1;
+  transform: scale(1.4) rotate(12deg);
+}
+
+.egg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(12, 10, 8, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s;
+}
+
+.egg-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.egg-card {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 90svh;
+  overflow: auto;
+  padding: clamp(2rem, 7vw, 3.5rem);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.13), transparent 60%),
+    var(--surface);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.6s var(--ease);
+}
+
+.egg-overlay.is-open .egg-card {
+  transform: none;
+}
+
+.egg-kicker {
+  margin: 0 0 1rem;
+  color: var(--amber);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.egg-card h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.egg-message {
+  max-width: 34ch;
+  margin: 0 auto;
+  color: #e7dccd;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.1rem, 3.4vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.egg-personal {
+  max-width: 30ch;
+  margin: 1.2rem auto 0;
+  color: #f6c177;
+  font-family: "Caveat", cursive;
+  font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+  line-height: 1.3;
+}
+
+.egg-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #b9ab9d;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.egg-close:hover,
+.egg-close:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.egg-button {
+  margin-top: 1.8rem;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid rgba(245, 158, 11, 0.42);
+  border-radius: 999px;
+  color: #ffd9a0;
+  background: rgba(245, 158, 11, 0.1);
+  font: inherit;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s var(--ease);
+}
+
+.egg-button:hover,
+.egg-button:focus-visible {
+  background: rgba(245, 158, 11, 0.18);
+  transform: translateY(-2px);
+}
+
+.confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -8vh;
+  width: 7px;
+  height: 13px;
+  border-radius: 1px;
+  opacity: 0;
+  animation: confettiFall var(--fall-duration, 3s) linear var(--fall-delay, 0s) forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(var(--spin, 720deg));
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-name {
+    font-size: clamp(3rem, 15vh, 7rem);
+  }
+  .scroll-cue {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .hero-name span,
+  .hero-eyebrow,
+  .hero-sub {
+    opacity: 1;
+    transform: none;
+  }
+  .confetti {
+    display: none;
+  }
+}
+</style>
+<noscript>
+  <style>
+    .reveal, .hero-name span, .hero-eyebrow, .hero-sub {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  </style>
+</noscript>
+</head>
+<body>
+<a class="skip-link" href="#letter">Skip to the letter</a>
+<button class="star-trigger" id="starTrigger" type="button" aria-label="A tiny hidden star" aria-haspopup="dialog" aria-expanded="false">✦</button>
+
+<main>
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">a small thing, made slowly</p>
+      <h1 class="hero-name" aria-label="Swati">
+        <span aria-hidden="true" style="--i:0">S</span><span aria-hidden="true" style="--i:1">w</span><span aria-hidden="true" style="--i:2">a</span><span aria-hidden="true" style="--i:3">t</span><span aria-hidden="true" style="--i:4">i</span>
+      </h1>
+      <p class="hero-sub">You make the ordinary feel like <em>somewhere I want to be.</em></p>
+    </div>
+    <a class="scroll-cue" href="#letter">scroll to open your gift <span aria-hidden="true">↓</span></a>
+  </section>
+
+  <section class="section letter-section" id="letter">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">open when you miss me</p>
+        <h2>There’s a letter in here for you.</h2>
+        <p class="section-lede">Tap the envelope. Take your time. It isn’t going anywhere.</p>
+      </div>
+
+      <div class="envelope-wrap reveal" id="envelopeWrap" style="--delay: 0.1s">
+        <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="letterCard" aria-label="Open the letter">
+          <span class="envelope-back" aria-hidden="true"></span>
+          <span class="envelope-paper" aria-hidden="true">Swati,</span>
+          <span class="envelope-front" aria-hidden="true"></span>
+          <span class="envelope-flap" aria-hidden="true"></span>
+          <span class="wax-seal" aria-hidden="true">S</span>
+        </button>
+        <p class="envelope-hint" id="envelopeHint">tap the envelope</p>
+
+        <article class="letter-card" id="letterCard" aria-hidden="true">
+          <div class="letter-paper">
+            <p class="letter-date">for whenever you need it</p>
+            <div class="letter-body">
+              <p class="salutation">Swati,</p>
+              <p>I keep thinking about that night we split the last packet of Maggi at 1:40 a.m. and argued about whether it needed more chilli. You were right. You’re always right about chilli.</p>
+              <p>I miss the way you narrate strangers across the room. The man with the yellow umbrella is a retired spy. The auntie with the tote bag is hiding a whole second life. You do it so quietly that I’m the only one who gets to hear it.</p>
+              <p>I miss the way you say “we should go” like it’s a dare, and then we actually go. I miss your off-key humming in the auto. I miss how a normal Tuesday turns into a plan the second you’re in it.</p>
+              <p>If you’re reading this because you miss me, same. Put on Dracula, make something warm, and know that I’m probably thinking about you at the exact same time. The distance is temporary. The rest of it isn’t.</p>
+              <p class="signoff">Yours, in all the ordinary ways,</p>
+              <p class="signature">— me</p>
+              <p class="p-s">P.S. You still owe me one terrible pun.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reasons-section" id="reasons">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">reasons i love you</p>
+        <h2>Things I love about you, in no particular order.</h2>
+        <p class="section-lede">Tap a card. Stay a while.</p>
+      </div>
+
+      <div class="reasons-grid">
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.02s">
+          <span class="reason-emoji" aria-hidden="true">🎧</span>
+          <span class="reason-text">You hum off-key and don’t care.</span>
+          <span class="reason-index">01</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.05s">
+          <span class="reason-emoji" aria-hidden="true">🚶‍♀️</span>
+          <span class="reason-text">The way you say “we should go” like it’s a dare.</span>
+          <span class="reason-index">02</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.08s">
+          <span class="reason-emoji" aria-hidden="true">🧣</span>
+          <span class="reason-text">You steal my hoodie, then deny it with a straight face.</span>
+          <span class="reason-index">03</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.11s">
+          <span class="reason-emoji" aria-hidden="true">🌙</span>
+          <span class="reason-text">Your 1 a.m. theories are better than most films.</span>
+          <span class="reason-index">04</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.14s">
+          <span class="reason-emoji" aria-hidden="true">🫖</span>
+          <span class="reason-text">You remember how I take my chai without being told.</span>
+          <span class="reason-index">05</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.17s">
+          <span class="reason-emoji" aria-hidden="true">😂</span>
+          <span class="reason-text">You laugh at your own jokes before you finish them.</span>
+          <span class="reason-index">06</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.2s">
+          <span class="reason-emoji" aria-hidden="true">✨</span>
+          <span class="reason-text">You make ordinary Tuesdays feel like plans.</span>
+          <span class="reason-index">07</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.23s">
+          <span class="reason-emoji" aria-hidden="true">🌾</span>
+          <span class="reason-text">The way you tuck your hair behind your ear mid-sentence.</span>
+          <span class="reason-index">08</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.26s">
+          <span class="reason-emoji" aria-hidden="true">📺</span>
+          <span class="reason-text">You’re the calmest person in a crisis and the loudest during a match.</span>
+          <span class="reason-index">09</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.29s">
+          <span class="reason-emoji" aria-hidden="true">🍊</span>
+          <span class="reason-text">You always share the last bite, then pretend you didn’t want it.</span>
+          <span class="reason-index">10</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.32s">
+          <span class="reason-emoji" aria-hidden="true">📱</span>
+          <span class="reason-text">You send me things that say “this is so us” with zero context.</span>
+          <span class="reason-index">11</span>
+        </button>
+        <button class="reason-card reveal" type="button" aria-pressed="false" style="--delay: 0.35s">
+          <span class="reason-emoji" aria-hidden="true">🌱</span>
+          <span class="reason-text">You make me want to be a little more patient with the world.</span>
+          <span class="reason-index">12</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery-section" id="gallery">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <p class="section-kicker">us, so far</p>
+        <h2>Us, so far.</h2>
+        <p class="section-lede">The photos are coming. The captions got impatient.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="photo reveal" style="--delay: 0.02s">
+          <div class="photo-visual ph-1" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">01</span>
+          </div>
+          <figcaption class="caption">The blurry one you hate. I keep it because you’re laughing.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.05s">
+          <div class="photo-visual ph-2" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">02</span>
+          </div>
+          <figcaption class="caption">That rainy afternoon we pretended to be tourists in our own city.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.08s">
+          <div class="photo-visual ph-3" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">03</span>
+          </div>
+          <figcaption class="caption">Proof that you did, in fact, finish the whole plate.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.11s">
+          <div class="photo-visual ph-4" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">04</span>
+          </div>
+          <figcaption class="caption">The metro selfie where you blinked. Still my favourite.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.14s">
+          <div class="photo-visual ph-5" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">05</span>
+          </div>
+          <figcaption class="caption">You, mid-story, hands doing the talking.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.17s">
+          <div class="photo-visual ph-6" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">06</span>
+          </div>
+          <figcaption class="caption">The chai stall we keep going back to.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.2s">
+          <div class="photo-visual ph-7" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">07</span>
+          </div>
+          <figcaption class="caption">Golden hour, your hair, my terrible camera.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.23s">
+          <div class="photo-visual ph-8" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">08</span>
+          </div>
+          <figcaption class="caption">The night we missed the last train and called it fate.</figcaption>
+        </figure>
+        <figure class="photo reveal" style="--delay: 0.26s">
+          <div class="photo-visual ph-9" role="img" aria-label="Placeholder for a photo of Swati and me" data-mark="photo coming soon">
+            <span class="photo-index" aria-hidden="true">09</span>
+          </div>
+          <figcaption class="caption">That one photo you’ll delete. I’m saving it here forever.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section song-section" id="song">
+    <div class="section-inner song-inner">
+      <div class="reveal">
+        <p class="section-kicker">the song</p>
+        <h2>This is the song I think about when I think about you.</h2>
+        <p class="song-title">“Dracula” <span>— Tame Impala</span></p>
+      </div>
+      <div class="video-frame reveal" style="--delay: 0.1s">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/xnP7qKxwzjg?rel=0&modestbranding=1"
+          title="Tame Impala — Dracula"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="song-note reveal" style="--delay: 0.15s">Put it on. This one’s ours. <a class="song-link" href="https://www.youtube.com/watch?v=xnP7qKxwzjg" target="_blank" rel="noopener">Open on YouTube</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>Made by your person, with too much coffee and not enough sleep.</p>
+  <p class="footer-small">for Swati. obviously.</p>
+</footer>
+
+<div class="egg-overlay" id="eggOverlay" role="dialog" aria-modal="true" aria-labelledby="eggTitle" aria-hidden="true">
+  <div class="egg-card" id="eggCard">
+    <button class="egg-close" id="eggClose" type="button" aria-label="Close the surprise">×</button>
+    <p class="egg-kicker">you found the hidden star</p>
+    <h2 id="eggTitle">You found it.</h2>
+    <p class="egg-message">Maggi at 1:40 a.m., extra chilli, and yes — you were right. You’re always right about chilli.</p>
+    <p class="egg-personal">Now come here so I can tell you the rest in person.</p>
+    <button class="egg-button" id="eggButton" type="button">okay, come back to me</button>
+  </div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+</div>
+
+<script>
+(function () {
+  var envelope = document.getElementById("envelope");
+  var envelopeWrap = document.getElementById("envelopeWrap");
+  var envelopeHint = document.getElementById("envelopeHint");
+  var letterCard = document.getElementById("letterCard");
+
+  function setEnvelope(open) {
+    envelope.classList.toggle("is-open", open);
+    envelopeWrap.classList.toggle("is-open", open);
+    letterCard.classList.toggle("is-open", open);
+    envelope.setAttribute("aria-expanded", String(open));
+    letterCard.setAttribute("aria-hidden", String(!open));
+    envelopeHint.textContent = open ? "tap again to fold it back" : "tap the envelope";
+  }
+
+  envelope.addEventListener("click", function () {
+    setEnvelope(!envelope.classList.contains("is-open"));
+  });
+
+  document.querySelectorAll(".reason-card").forEach(function (card) {
+    card.addEventListener("click", function () {
+      var pressed = card.getAttribute("aria-pressed") === "true";
+      card.setAttribute("aria-pressed", String(!pressed));
+      card.classList.toggle("is-lifted", !pressed);
+    });
+  });
+
+  var revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revealItems.forEach(function (item) {
+      observer.observe(item);
+    });
+  } else {
+    revealItems.forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+  }
+
+  var star = document.getElementById("starTrigger");
+  var taps = 0;
+  var tapTimer;
+
+  star.addEventListener("click", function () {
+    taps += 1;
+    star.classList.add("is-tapped");
+    window.setTimeout(function () {
+      star.classList.remove("is-tapped");
+    }, 260);
+    window.clearTimeout(tapTimer);
+    tapTimer = window.setTimeout(function () {
+      taps = 0;
+    }, 1800);
+    if (taps >= 5) {
+      taps = 0;
+      window.clearTimeout(tapTimer);
+      openEgg();
+    }
+  });
+
+  var overlay = document.getElementById("eggOverlay");
+  var eggClose = document.getElementById("eggClose");
+  var eggButton = document.getElementById("eggButton");
+  var confettiLayer = document.getElementById("confetti");
+  var lastFocus = null;
+  var confettiTimer;
+
+  var palette = ["#f59e0b", "#f43f5e", "#f6c177", "#f5ead8", "#c2410c"];
+
+  function spawnConfetti() {
+    confettiLayer.replaceChildren();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    for (var i = 0; i < 46; i += 1) {
+      var piece = document.createElement("span");
+      piece.className = "confetti-piece";
+      piece.style.left = Math.random() * 100 + "%";
+      piece.style.background = palette[Math.floor(Math.random() * palette.length)];
+      piece.style.width = 4 + Math.random() * 6 + "px";
+      piece.style.height = 8 + Math.random() * 10 + "px";
+      piece.style.setProperty("--fall-duration", (2.4 + Math.random() * 0.8).toFixed(2) + "s");
+      piece.style.setProperty("--fall-delay", (Math.random() * 0.6).toFixed(2) + "s");
+      piece.style.setProperty("--drift", (Math.random() * 160 - 80).toFixed(0) + "px");
+      piece.style.setProperty("--spin", (Math.random() * 720 + 360).toFixed(0) + "deg");
+      confettiLayer.appendChild(piece);
+    }
+    window.clearTimeout(confettiTimer);
+    confettiTimer = window.setTimeout(function () {
+      confettiLayer.replaceChildren();
+    }, 3600);
+  }
+
+  function openEgg() {
+    lastFocus = document.activeElement;
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    star.setAttribute("aria-expanded", "true");
+    document.body.classList.add("no-scroll");
+    spawnConfetti();
+    window.setTimeout(function () {
+      eggClose.focus();
+    }, 80);
+  }
+
+  function closeEgg() {
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    star.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("no-scroll");
+    confettiLayer.replaceChildren();
+    window.clearTimeout(confettiTimer);
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    } else {
+      star.focus();
+    }
+  }
+
+  eggClose.addEventListener("click", closeEgg);
+  eggButton.addEventListener("click", closeEgg);
+
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) {
+      closeEgg();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (!overlay.classList.contains("is-open")) {
+      return;
+    }
+    if (event.key === "Escape") {
+      closeEgg();
+      return;
+    }
+    if (event.key === "Tab") {
+      var focusable = [eggClose, eggButton];
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
